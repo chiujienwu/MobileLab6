@@ -20,15 +20,15 @@ namespace MobileLab6
         {
             InitializeComponent();
 
-            strList.Add("Flower Box");
-            strList.Add("Onion Patch");
-            strList.Add("Lettuce Lattice");
-            strList.Add("Tomato Tub");
-            imageList.Add("flower_box.jpg");
-            imageList.Add("img_1.jpg");
-            imageList.Add("img_2.jpg");
-            imageList.Add("img_3.jpg");
-            index = 0;
+            //strList.Add("Flower Box");
+            //strList.Add("Onion Patch");
+            //strList.Add("Lettuce Lattice");
+            //strList.Add("Tomato Tub");
+            //imageList.Add("flower_box.jpg");
+            //imageList.Add("img_1.jpg");
+            //imageList.Add("img_2.jpg");
+            //imageList.Add("img_3.jpg");
+            //index = 0;
         }
 
         void OnSwiped(object sender, SwipedEventArgs e)

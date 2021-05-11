@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:MobileLab6" mc:Ignorable="d" x:Class="MobileLab6.MainPage">
-    <StackLayout>
+    
+    <StackLayout Padding="10,10,10,10">
         <!-- Place new controls here -->
+
+        <!-- Control Instructions -->
+        <Label x:Name="instructionsleft" HorizontalOptions="Center" FontAttributes="Bold" Text="&lt;&lt;Swipe Left for True"></Label>
+        <Label x:Name="instructionsright" HorizontalOptions="Center" FontAttributes="Bold" Text="Swipe Right for False&gt;&gt;"></Label>
+
+        <!-- Question // Binding? -->
+
         <Label x:Name="theLabel" Text="Flower Table" HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" />
 
@@ -12,7 +20,9 @@
                        HeightRequest="{OnPlatform iOS=300, Android=250}"
                        HorizontalOptions="Center" />-->
             <Image x:Name="theImage" Source="flower_box.jpg" Aspect="AspectFit" HorizontalOptions="Center" />
+        <!-- Score -->
         </local:SwipeContainer>
 
     </StackLayout>
+    
 </ContentPage>
