@@ -40,8 +40,8 @@ namespace MobileLab6
                 {
                     index = -1;
                 }
-                theLabel.Text = strList[++index];
-                theImage.Source = imageList[index];
+                //theLabel.Text = strList[++index];
+                //theImage.Source = imageList[index];
             }
             else if (e.Direction == SwipeDirection.Left)
             {
@@ -49,8 +49,8 @@ namespace MobileLab6
                 {
                     index = strList.Count;
                 }
-                theLabel.Text = strList[--index];
-                theImage.Source = imageList[index];
+                //theLabel.Text = strList[--index];
+                //theImage.Source = imageList[index];
             }
         }
 

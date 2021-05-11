@@ -2,27 +2,68 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:MobileLab6" mc:Ignorable="d" x:Class="MobileLab6.MainPage">
     
     <StackLayout Padding="10,10,10,10">
-        <!-- Place new controls here -->
+        
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"></ColumnDefinition>
+                <ColumnDefinition Width=".5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Place new controls/content here -->
 
-        <!-- Control Instructions -->
-        <Label x:Name="instructionsleft" HorizontalOptions="Center" FontAttributes="Bold" Text="&lt;&lt;Swipe Left for True"></Label>
-        <Label x:Name="instructionsright" HorizontalOptions="Center" FontAttributes="Bold" Text="Swipe Right for False&gt;&gt;"></Label>
+            <!-- Control Instructions -->
+            <Label x:Name="instructionsleft"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Text="&lt;&lt;Swipe Left for True"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   BackgroundColor="Green"
+                   LineBreakMode="WordWrap"
+                   />
 
-        <!-- Question // Binding? -->
+            <Label x:Name="instructionsright"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Text="Swipe Right for False&gt;&gt;"
+                   HorizontalTextAlignment="End"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   BackgroundColor="Red"
+                   LineBreakMode="WordWrap"
+                   />
+            
+            <!-- Question + Swipe Container // Binding? -->
 
-        <Label x:Name="theLabel" Text="Flower Table" HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" />
-
-        <local:SwipeContainer Swipe="OnSwiped" 
-         HorizontalOptions="Center" 
-         VerticalOptions="CenterAndExpand">
-            <!--<Image x:Name="theImage" Source="flower_box.jpg" Aspect="AspectFit"
-                       HeightRequest="{OnPlatform iOS=300, Android=250}"
-                       HorizontalOptions="Center" />-->
-            <Image x:Name="theImage" Source="flower_box.jpg" Aspect="AspectFit" HorizontalOptions="Center" />
-        <!-- Score -->
-        </local:SwipeContainer>
-
+            <local:SwipeContainer Swipe="OnSwiped"
+                                  Grid.Row="1"
+                                  Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="CenterAndExpand">
+                <Label x:Name="theLabel"
+                       Padding="0,50,0,0"
+                       Text="Question Goes Here"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       TextColor="Black"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"/>
+            </local:SwipeContainer>
+            
+        </Grid>
+        
     </StackLayout>
     
 </ContentPage>
