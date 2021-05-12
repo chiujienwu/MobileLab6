@@ -9,11 +9,12 @@ namespace MobileLab6
     public partial class App : Application
     {
         public static IList<QAItem> list { get; set; }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MainPage(list);
         }
 
         protected override void OnStart()
@@ -49,7 +50,6 @@ namespace MobileLab6
                     }
                 };
             }
-
         }
 
         protected override void OnSleep()
