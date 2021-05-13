@@ -14,14 +14,42 @@ namespace MobileLab6
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        private IList<QAItem> _list;
         private int score;
         private int index = 0;
-        public MainPage(IList<QAItem> list)
+        public MainPage()
         {
             InitializeComponent();
-            this._list = list;
-            this.BindingContext = list;
+
+                IList<QAItem> list = new List<QAItem>
+                {
+                    new QAItem
+                    {
+                        Question = "In JavaScript, if(new Date()) will evaluate to",
+                        Answer = true
+                    },
+                    new QAItem
+                    {
+                        Question = @"In JavaScript, if(""false"") will evaluate to",
+                        Answer = true
+                    },
+                    new QAItem
+                    {
+                        Question = "In Java, if Object is null, it will evaluate to",
+                        Answer = false
+                    },
+                    new QAItem
+                    {
+                        Question = "In Java, if Collection is empty or null, it will evaluate to",
+                        Answer = false
+                    },
+                    new QAItem
+                    {
+                        Question = "In Java, if there no further elements of a given iterator, it will evalute to",
+                        Answer = false
+                    }
+                };
+            
+            this.BindingContext = list[0];
         }
 
         private async void OnSwiped(object sender, SwipedEventArgs e)

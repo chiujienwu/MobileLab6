@@ -14,42 +14,11 @@ namespace MobileLab6
         {
             InitializeComponent();
 
-            MainPage = new MainPage(list);
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
         {
-            if (list == null)
-            {
-                list = new List<QAItem>
-                {
-                    new QAItem
-                    {
-                        Question = "In JavaScript, if(new Date()) will evaluate to",
-                        Answer = true
-                    },
-                    new QAItem
-                    {
-                        Question = @"In JavaScript, if(""false"") will evaluate to",
-                        Answer = true
-                    },
-                    new QAItem
-                    {
-                        Question = "In Java, if Object is null, it will evaluate to",
-                        Answer = false
-                    },
-                    new QAItem
-                    {
-                        Question = "In Java, if Collection is empty or null, it will evaluate to",
-                        Answer = false
-                    },
-                    new QAItem
-                    {
-                        Question = "In Java, if there no further elements of a given iterator, it will evalute to",
-                        Answer = false
-                    }
-                };
-            }
         }
 
         protected override void OnSleep()
