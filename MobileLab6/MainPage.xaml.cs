@@ -14,42 +14,39 @@ namespace MobileLab6
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        private int score;
+        IList<QAItem> list = new List<QAItem>();
+        private int score = 0;
         private int index = 0;
         public MainPage()
         {
             InitializeComponent();
+            list.Add(new QAItem
+            {
+                Question = "In JavaScript, expression if(new Date()) will evaluate to?",
+                Answer = true
+            });
+            list.Add(new QAItem
+            {
+                Question = @"In JavaScript, expression if(""false"") will evaluate to?",
+                Answer = true
+            });
+            list.Add(new QAItem
+            {
+                Question = "In Java, if an Object is null, it will evaluate to?",
+                Answer = false
+            });
+            list.Add(new QAItem
+            {
+                Question = "In Java, if a Collection is empty or null, it will evaluate to?",
+                Answer = false
+            });
+            list.Add(new QAItem
+            {
+                Question = "In Java, if there no further elements of a given iterator, it will evalute to?",
+                Answer = false
+            });
 
-                IList<QAItem> list = new List<QAItem>
-                {
-                    new QAItem
-                    {
-                        Question = "In JavaScript, if(new Date()) will evaluate to",
-                        Answer = true
-                    },
-                    new QAItem
-                    {
-                        Question = @"In JavaScript, if(""false"") will evaluate to",
-                        Answer = true
-                    },
-                    new QAItem
-                    {
-                        Question = "In Java, if Object is null, it will evaluate to",
-                        Answer = false
-                    },
-                    new QAItem
-                    {
-                        Question = "In Java, if Collection is empty or null, it will evaluate to",
-                        Answer = false
-                    },
-                    new QAItem
-                    {
-                        Question = "In Java, if there no further elements of a given iterator, it will evalute to",
-                        Answer = false
-                    }
-                };
-            
-            this.BindingContext = list[0];
+            this.BindingContext = list[index];
         }
 
         private async void OnSwiped(object sender, SwipedEventArgs e)
@@ -58,42 +55,40 @@ namespace MobileLab6
             
             if (e.Direction == SwipeDirection.Right)
             {
-
                 await DisplayAlert("Swiped", "To the Right", "True");
-                if (index > 4)
+
+                if(list[index].Answer == true)
                 {
-                    index = 0;
+                    score++;
+                    await DisplayAlert("Answer", "Correct!", "Next");
                 } else
                 {
-                    index++;
+                    await DisplayAlert("Answer", "Incorrect!", "Next");
                 }
-
-                //if (index >= strList.Count - 1)
-                //{
-                //    index = -1;
-                //}
-                //theLabel.Text = strList[++index];
-                //theImage.Source = imageList[index];
             }
             else if (e.Direction == SwipeDirection.Left)
             {
                 await DisplayAlert("Swiped", "To the Left", "False");
-                if (index == 0)
-                {
-                    index = 4;
-                }
-                else
-                {
-                    index--;
-                }
-                //if (index <= 0)
-                //{
-                //    index = strList.Count;
-                //}
-                //theLabel.Text = strList[--index];
-                //theImage.Source = imageList[index];
-            }
-        }
 
+                if (list[index].Answer == false)
+                {
+                    score++;
+                    await DisplayAlert("Answer", "Correct!", "Next");
+                } else
+                {
+                    await DisplayAlert("Answer", "Incorrect!", "Next");
+                }
+            }
+
+            if((index + 1) >= list.Count)
+            {
+                await DisplayAlert("Final Score", "You scored " + score + " out of " + list.Count, "Done");
+            } else
+            {
+                index++;
+            }
+            
+            this.BindingContext = list[index];
+        }
     }
 }
